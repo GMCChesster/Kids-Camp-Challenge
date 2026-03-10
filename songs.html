@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camp Songs | Camp Challenge Guide</title>
+    <style>
+        :root {
+            --primary: #1b4332;
+            --accent: #ffb703;
+            --music-purple: #7209b7;
+            --sky: #4cc9f0;
+            --white: #ffffff;
+            --gray-bg: #f8fafc;
+            --border: #e2e8f0;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+        }
+
+        body { 
+            font-family: 'Inter', -apple-system, sans-serif; 
+            background-color: var(--gray-bg); 
+            margin: 0; 
+            color: var(--text-main); 
+            line-height: 1.6;
+        }
+
+        header { 
+            background: var(--music-purple); 
+            color: white; 
+            padding: 80px 20px; 
+            text-align: center; 
+            border-bottom: 8px solid var(--accent);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        header h1 { margin: 0; font-size: 2.5rem; letter-spacing: -1px; }
+        header p { margin-top: 10px; opacity: 0.9; font-size: 1.1rem; }
+
+        .container { max-width: 1100px; margin: 40px auto; padding: 0 25px; }
+
+        h2 { 
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--primary); 
+            margin: 50px 0 20px; 
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h2::after {
+            content: "";
+            flex-grow: 1;
+            height: 2px;
+            background: var(--border);
+        }
+
+        .song-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+            gap: 18px; 
+        }
+
+        .song-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border: 1px solid var(--border);
+            transition: all 0.25s ease;
+        }
+
+        .song-card:hover { 
+            transform: translateY(-3px); 
+            border-color: var(--music-purple); 
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+        }
+
+        .note-icon { 
+            font-size: 1.6rem; 
+            background: #f3f0ff; 
+            padding: 12px; 
+            border-radius: 15px; 
+            min-width: 50px; 
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .song-info h3 { margin: 0; font-size: 1.05rem; color: var(--primary); font-weight: 700; }
+        .song-info p { margin: 2px 0 0; font-size: 0.85rem; color: var(--text-muted); }
+
+        .back-nav { text-align: center; margin: 80px 0; padding-bottom: 40px; }
+        .back-nav a { 
+            color: var(--primary); 
+            font-weight: 800; 
+            text-decoration: none; 
+            padding: 12px 24px;
+            border: 2px solid var(--primary);
+            border-radius: 50px;
+            transition: all 0.2s;
+        }
+        .back-nav a:hover { background: var(--primary); color: white; }
+
+        @media (max-width: 600px) {
+            header { padding: 50px 20px; }
+            header h1 { font-size: 1.8rem; }
+            .song-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🎶 The Camp Playlist 🎶</h1>
+    <p>Every Challenge Song, Jams, and Classics</p>
+</header>
+
+<div class="container">
+
+    <h2>🍳 Breakfast & Novelty</h2>
+    <div class="song-grid">
+        <div class="song-card"><span class="note-icon">🌮</span><div class="song-info"><h3>Raining Tacos</h3><p>Parry Gripp</p></div></div>
+        <div class="song-card"><span class="note-icon">🌯</span><div class="song-info"><h3>Yum Yum Breakfast Burrito</h3><p>Parry Gripp</p></div></div>
+        <div class="song-card"><span class="note-icon">🤖</span><div class="song-info"><h3>Pancake Robot</h3><p>Parry Gripp</p></div></div>
+        <div class="song-card"><span class="note-icon">🍔</span><div class="song-info"><h3>Party in the C.I.A.</h3><p>"Weird Al" Yankovic</p></div></div>
+        <div class="song-card"><span class="note-icon">☀️</span><div class="song-info"><h3>Good Morning</h3><p>Mandisa / Singin' in the Rain</p></div></div>
+        <div class="song-card"><span class="note-icon">🌳</span><div class="song-info"><h3>Let It Grow</h3><p>The Lorax Cast</p></div></div>
+        <div class="song-card"><span class="note-icon">🐗</span><div class="song-info"><h3>Hakuna Matata</h3><p>The Lion King</p></div></div>
+    </div>
+
+    <h2>🙌 Worship & Faith</h2>
+    <div class="song-grid">
+        <div class="song-card"><span class="note-icon">👏</span><div class="song-info"><h3>Church Clap</h3><p>KB ft. Lecrae</p></div></div>
+        <div class="song-card"><span class="note-icon">🏠</span><div class="song-info"><h3>My Lighthouse</h3><p>Rend Collective</p></div></div>
+        <div class="song-card"><span class="note-icon">🏆</span><div class="song-info"><h3>Overcomer</h3><p>Mandisa</p></div></div>
+        <div class="song-card"><span class="note-icon">🛤️</span><div class="song-info"><h3>Your Ways Better</h3><p>Forrest Frank</p></div></div>
+        <div class="song-card"><span class="note-icon">🌊</span><div class="song-info"><h3>Deep Cries Out</h3><p>Bethel Music Kids</p></div></div>
+    </div>
+
+    <h2>🤸 Pop Anthems</h2>
+    <div class="song-grid">
+        <div class="song-card"><span class="note-icon">👟</span><div class="song-info"><h3>Shake It Off</h3><p>Taylor Swift</p></div></div>
+        <div class="song-card"><span class="note-icon">🏰</span><div class="song-info"><h3>Love Story</h3><p>Taylor Swift</p></div></div>
+        <div class="song-card"><span class="note-icon">💔</span><div class="song-info"><h3>You Belong With Me</h3><p>Taylor Swift</p></div></div>
+        <div class="song-card"><span class="note-icon">✨</span><div class="song-info"><h3>What Makes You Beautiful</h3><p>One Direction</p></div></div>
+        <div class="song-card"><span class="note-icon">⭐</span><div class="song-info"><h3>Best Song Ever</h3><p>One Direction</p></div></div>
+        <div class="song-card"><span class="note-icon">📖</span><div class="song-info"><h3>Story of My Life</h3><p>One Direction</p></div></div>
+        <div class="song-card"><span class="note-icon">🐚</span><div class="song-info"><h3>Hey Soul Sister</h3><p>Train</p></div></div>
+        <div class="song-card"><span class="note-icon">🇺🇸</span><div class="song-info"><h3>Party in the U.S.A.</h3><p>Miley Cyrus</p></div></div>
+        <div class="song-card"><span class="note-icon">🎆</span><div class="song-info"><h3>Firework</h3><p>Katy Perry</p></div></div>
+        <div class="song-card"><span class="note-icon">🎒</span><div class="song-info"><h3>I Want It That Way</h3><p>Backstreet Boys</p></div></div>
+    </div>
+
+    <h2>📽️ Disney & Soundtracks</h2>
+    <div class="song-grid">
+        <div class="song-card"><span class="note-icon">🛶</span><div class="song-info"><h3>Get Lost</h3><p>Moana 2</p></div></div>
+        <div class="song-card"><span class="note-icon">🦁</span><div class="song-info"><h3>I Just Can't Wait to Be King</h3><p>The Lion King</p></div></div>
+        <div class="song-card"><span class="note-icon">🧱</span><div class="song-info"><h3>Everything Is Awesome</h3><p>The LEGO Movie</p></div></div>
+        <div class="song-card"><span class="note-icon">🤠</span><div class="song-info"><h3>You've Got a Friend in Me</h3><p>Toy Story</p></div></div>
+        <div class="song-card"><span class="note-icon">❄️</span><div class="song-info"><h3>Let It Go</h3><p>Frozen</p></div></div>
+        <div class="song-card"><span class="note-icon">☀️</span><div class="song-info"><h3>When Will My Life Begin?</h3><p>Tangled</p></div></div>
+        <div class="song-card"><span class="note-icon">🌀</span><div class="song-info"><h3>You're Welcome</h3><p>Moana</p></div></div>
+        <div class="song-card"><span class="note-icon">💃</span><div class="song-info"><h3>Better When I'm Dancing</h3><p>Meghan Trainor</p></div></div>
+    </div>
+
+    <h2>🎉 Party & Classics</h2>
+    <div class="song-grid">
+        <div class="song-card"><span class="note-icon">🕺</span><div class="song-info"><h3>Cha Cha Slide</h3><p>DJ Casper</p></div></div>
+        <div class="song-card"><span class="note-icon">💘</span><div class="song-info"><h3>Cupid Shuffle</h3><p>Cupid</p></div></div>
+        <div class="song-card"><span class="note-icon">👯</span><div class="song-info"><h3>Macarena</h3><p>Los Del Rio</p></div></div>
+        <div class="song-card"><span class="note-icon">🤠</span><div class="song-info"><h3>Cotton-Eye Joe</h3><p>Rednex</p></div></div>
+        <div class="song-card"><span class="note-icon">🖐️</span><div class="song-info"><h3>Y.M.C.A.</h3><p>Village People</p></div></div>
+        <div class="song-card"><span class="note-icon">💎</span><div class="song-info"><h3>Sweet Caroline</h3><p>Neil Diamond</p></div></div>
+        <div class="song-card"><span class="note-icon">💣</span><div class="song-info"><h3>You Dropped a Bomb on Me</h3><p>The Gap Band</p></div></div>
+        <div class="song-card"><span class="note-icon">🎷</span><div class="song-info"><h3>Careless Whisper</h3><p>George Michael</p></div></div>
+    </div>
+
+    <div class="back-nav">
+        <a href="index.html">← Back to Main Guide</a>
+    </div>
+</div>
+
+</body>
+</html>

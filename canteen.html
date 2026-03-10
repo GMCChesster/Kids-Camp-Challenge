@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canteen Shop & Budgeter | Camp Challenge</title>
+    <style>
+        :root {
+            --candy-pink: #ff85a1;
+            --sky-blue: #219ebc;
+            --sunny: #ffb703;
+            --forest: #1b4332;
+            --white: #ffffff;
+            --bg: #f8fafc;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background-color: var(--bg);
+            margin: 0;
+            color: #1e293b;
+            padding-bottom: 120px;
+        }
+
+        /* Updated Header Style */
+header {
+    background: var(--forest);
+    color: var(--sunny); /* High contrast yellow text */
+    padding: 40px 20px;
+    text-align: center;
+    border-bottom: 8px solid var(--candy-pink); /* Swapped the accent color */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+header p {
+    color: white;
+    opacity: 0.9;
+    margin-top: 10px;
+}
+
+
+
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        .category-section { margin-bottom: 60px; }
+        
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.8rem;
+            color: var(--forest);
+            border-bottom: 3px solid var(--candy-pink);
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+        }
+
+        .snack-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .snack-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 8px 0px #eee;
+            border: 2px solid #e2e8f0;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            user-select: none;
+        }
+
+        .snack-card:hover { transform: translateY(-5px); border-color: var(--candy-pink); }
+        .emoji { font-size: 3rem; display: block; margin-bottom: 10px; }
+        .item-name { font-weight: 800; font-size: 0.95rem; color: var(--forest); display: block; height: 45px; line-height: 1.2; }
+        .price-badge { display: inline-block; background: var(--sunny); color: #000; padding: 4px 12px; border-radius: 50px; font-weight: 900; font-size: 0.8rem; margin-top: 10px; }
+
+        .budget-bar {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: var(--forest);
+            color: white;
+            padding: 15px 0;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            z-index: 1000;
+            border-top: 5px solid var(--sunny);
+        }
+
+        .stat-value { font-size: 1.4rem; font-weight: 900; color: var(--sunny); }
+        .reset-btn { background: var(--candy-pink); border: none; color: white; padding: 10px 20px; border-radius: 50px; font-weight: bold; cursor: pointer; }
+        .see-cart-btn { background: var(--sky-blue); border: none; color: white; padding: 10px 20px; border-radius: 50px; font-weight: bold; cursor: pointer; }
+
+        .cart-overlay {
+            display: none; 
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cart-modal {
+            background: var(--white);
+            width: 90%;
+            max-width: 450px;
+            border-radius: 24px;
+            padding: 25px;
+            max-height: 80vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #cartItemsList { overflow-y: auto; flex-grow: 1; margin: 15px 0; }
+        .cart-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #eee; }
+        .del-btn { background: #ff5252; color: white; border: none; border-radius: 8px; padding: 5px 10px; cursor: pointer; }
+        .close-cart { background: var(--forest); color: white; border: none; padding: 12px; border-radius: 50px; font-weight: bold; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🍬 Canteen Planner 🥤</h1>
+    <p>Build your ultimate snack order!</p>
+</header>
+
+
+<div class="container">
+    
+    <!-- DRINKS (5) -->
+    <div class="category-section">
+        <h2 class="category-header">🥤 Cold Drinks</h2>
+        <div class="snack-grid">
+            <div class="snack-card" onclick="addToCart('Gatorade', 1.50)"><span class="emoji">🧊</span><span class="item-name">Gatorade</span><span class="price-badge">$1.50</span></div>
+            <div class="snack-card" onclick="addToCart('Soda Can', 1.00)"><span class="emoji">🥤</span><span class="item-name">Soda Can</span><span class="price-badge">$1.00</span></div>
+            <div class="snack-card" onclick="addToCart('Bottled Water', 1.00)"><span class="emoji">💧</span><span class="item-name">Bottled Water</span><span class="price-badge">$1.00</span></div>
+            <div class="snack-card" onclick="addToCart('Juice Box', 0.50)"><span class="emoji">🧃</span><span class="item-name">Juice Box</span><span class="price-badge">$0.50</span></div>
+            <div class="snack-card" onclick="addToCart('Lemonade', 1.00)"><span class="emoji">🍋</span><span class="item-name">Lemonade</span><span class="price-badge">$1.00</span></div>
+        </div>
+    </div>
+
+    <!-- SAVORY (5) -->
+    <div class="category-section">
+        <h2 class="category-header">🍿 Savory Snacks</h2>
+        <div class="snack-grid">
+            <div class="snack-card" onclick="addToCart('Dill Pickle', 1.00)"><span class="emoji">🥒</span><span class="item-name">Dill Pickle</span><span class="price-badge">$1.00</span></div>
+            <div class="snack-card" onclick="addToCart('Variety Chips', 1.00)"><span class="emoji">🍟</span><span class="item-name">Variety Chips</span><span class="price-badge">$1.00</span></div>
+            <div class="snack-card" onclick="addToCart('Soft Pretzel', 1.50)"><span class="emoji">🥨</span><span class="item-name">Soft Pretzel</span><span class="price-badge">$1.50</span></div>
+            <div class="snack-card" onclick="addToCart('Popcorn', 0.50)"><span class="emoji">🍿</span><span class="item-name">Popcorn</span><span class="price-badge">$0.50</span></div>
+            <div class="snack-card" onclick="addToCart('Beef Jerky', 1.50)"><span class="emoji">🥩</span><span class="item-name">Beef Jerky</span><span class="price-badge">$1.50</span></div>
+        </div>
+    </div>
+
+    <!-- CANDY (5) -->
+    <div class="category-section">
+        <h2 class="category-header">🍬 Candy</h2>
+        <div class="snack-grid">
+            <div class="snack-card" onclick="addToCart('Chocolate Bar', 1.50)"><span class="emoji">🍫</span><span class="item-name">Chocolate Bar</span><span class="price-badge">$1.50</span></div>
+            <div class="snack-card" onclick="addToCart('M&Ms/Skittles', 1.25)"><span class="emoji">🍬</span><span class="item-name">M&Ms/Skittles</span><span class="price-badge">$1.25</span></div>
+            <div class="snack-card" onclick="addToCart('Airheads', 0.50)"><span class="emoji">👅</span><span class="item-name">Airheads</span><span class="price-badge">$0.50</span></div>
+            <div class="snack-card" onclick="addToCart('Ring Pop', 1.00)"><span class="emoji">🍭</span><span class="item-name">Ring Pop</span><span class="price-badge">$1.00</span></div>
+            <div class="snack-card" onclick="addToCart('Sour Patch', 1.25)"><span class="emoji">🔥</span><span class="item-name">Sour Patch</span><span class="price-badge">$1.25</span></div>
+        </div>
+    </div>
+
+    <!-- MERCH (4) -->
+    <div class="category-section">
+        <h2 class="category-header">👕 Merch</h2>
+        <div class="snack-grid">
+            <div class="snack-card" onclick="addToCart('T-Shirt', 15.00)"><span class="emoji">👕</span><span class="item-name">T-Shirt</span><span class="price-badge">$15.00</span></div>
+            <div class="snack-card" onclick="addToCart('Hoodie', 25.00)"><span class="emoji">🧥</span><span class="item-name">Hoodie</span><span class="price-badge">$25.00</span></div>
+            <div class="snack-card" onclick="addToCart('Small Sticker', 0.25)"><span class="emoji">🏷️</span><span class="item-name">Small Sticker</span><span class="price-badge">$0.25</span></div>
+            <div class="snack-card" onclick="addToCart('Large Sticker', 1.00)"><span class="emoji">📮</span><span class="item-name">Large Sticker</span><span class="price-badge">$1.00</span></div>
+        </div>
+    </div>
+
+    <!-- TOYS (3) -->
+    <div class="category-section">
+        <h2 class="category-header">🧸 Stuffed Animals</h2>
+        <div class="snack-grid">
+            <div class="snack-card" onclick="addToCart('Small Plush', 8.00)"><span class="emoji">🐹</span><span class="item-name">Small Plush</span><span class="price-badge">$8.00</span></div>
+            <div class="snack-card" onclick="addToCart('Medium Plush', 10.00)"><span class="emoji">🦊</span><span class="item-name">Medium Plush</span><span class="price-badge">$10.00</span></div>
+            <div class="snack-card" onclick="addToCart('Large Plush', 12.00)"><span class="emoji">🐻</span><span class="item-name">Large Plush</span><span class="price-badge">$12.00</span></div>
+        </div>
+    </div>
+
+</div>
+
+<div id="cartOverlay" class="cart-overlay">
+    <div class="cart-modal">
+        <h2 style="margin:0; color: var(--forest)">🛒 My Cart</h2>
+        <div id="cartItemsList"></div>
+        <button class="close-cart" onclick="toggleCart()">Back to Shop</button>
+    </div>
+</div>
+
+<div class="budget-bar">
+    <button class="see-cart-btn" onclick="toggleCart()">See Cart (<span id="countDisplay">0</span>)</button>
+    <div class="stat">
+        <div id="totalDisplay" class="stat-value">$0.00</div>
+    </div>
+    <button class="reset-btn" onclick="resetCart()">Reset</button>
+</div>
+
+<script>
+    let cart = [];
+
+    function addToCart(name, price) {
+        cart.push({ name, price });
+        updateUI();
+    }
+
+    function removeItem(index) {
+        cart.splice(index, 1);
+        updateUI();
+        renderCartList(); 
+    }
+
+    function resetCart() {
+        cart = [];
+        updateUI();
+    }
+
+    function toggleCart() {
+        const overlay = document.getElementById('cartOverlay');
+        const isOpen = overlay.style.display === 'flex';
+        overlay.style.display = isOpen ? 'none' : 'flex';
+        if (!isOpen) renderCartList();
+    }
+
+    function renderCartList() {
+        const list = document.getElementById('cartItemsList');
+        if (cart.length === 0) {
+            list.innerHTML = "<p>Cart is empty!</p>";
+            return;
+        }
+        list.innerHTML = cart.map((item, index) => `
+            <div class="cart-item">
+                <span>${item.name} ($${item.price.toFixed(2)})</span>
+                <button class="del-btn" onclick="removeItem(${index})">Remove</button>
+            </div>
+        `).join('');
+    }
+
+    function updateUI() {
+        const total = cart.reduce((sum, item) => sum + item.price, 0);
+        document.getElementById('totalDisplay').innerText = "$" + total.toFixed(2);
+        document.getElementById('countDisplay').innerText = cart.length;
+    }
+</script>
+</body>
+</html>

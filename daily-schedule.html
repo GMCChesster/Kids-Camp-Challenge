@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Adventure | Camp Challenge</title>
+    <style>
+        :root {
+            --primary: #1b4332;
+            --accent: #ffb703;
+            --bg: #f8fafc;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: #1e293b;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), #2d6a4f);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 6px solid var(--accent);
+        }
+
+        .container { max-width: 800px; margin: -30px auto 60px; padding: 0 20px; }
+
+        .card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        h2 { color: var(--primary); margin-top: 0; border-left: 6px solid var(--accent); padding-left: 15px; }
+
+        .timeline { list-style: none; padding: 0; }
+        .time-block { display: flex; gap: 20px; padding: 15px 0; border-bottom: 1px solid #f1f5f9; }
+        .time-label { font-weight: 800; color: var(--primary); min-width: 100px; }
+        .activity-desc { flex: 1; }
+        .activity-desc strong { display: block; font-size: 1.1rem; }
+
+        .info-note { background: #e0f2fe; padding: 15px; border-radius: 12px; margin-top: 20px; font-size: 0.9rem; color: #0369a1; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>A Day at Camp</h1>
+    <p>Authentic 2026 Daily Schedule</p>
+</header>
+
+<div class="container">
+    <section class="card">
+        <h2>⏰ The Daily Timeline</h2>
+        <div class="timeline">
+            <div class="time-block">
+                <div class="time-label">8:30 AM</div>
+                <div class="activity-desc"><strong>Flag Raising</strong> The whole camp gathers to start the morning.</div>
+            </div>
+            <div class="time-block">
+                <div class="time-label">9:00 AM</div>
+                <div class="activity-desc"><strong>Breakfast</strong> Time to fuel up for the day!</div>
+            </div>
+            <div class="time-block">
+                <div class="time-label">10:00 AM</div>
+                <div class="activity-desc"><strong>Morning Worship</strong> High-energy songs and daily devotions.</div>
+            </div>
+            <div class="time-block">
+                <div class="time-label">10:30 AM</div>
+                <div class="activity-desc"><strong>Breakout Groups</strong> Small group rotations and activities.</div>
+            </div>
+            <div class="time-block">
+                <div class="time-label">12:00 PM</div>
+                <div class="activity-desc"><strong>STE(A)M Activity</strong> Creative or science-focused group projects.</div>
+            </div>
+            <div class="time-block">
+                <div class="time-label">1:00 PM</div>
+                <div class="activity-desc"><strong>Lunch</strong> Refueling in the dining hall.</div>
+            </div>
+            <div class="time-block">
+                <div class="time-label">1:45 PM</div>
+                <div class="activity-desc"><strong>Horizontal Time</strong> Mandatory quiet/rest time in the cabins.</div>
+            </div>
+            <div class="time-block">
+                <div class="time-label">2:30 PM</div>
+                <div class="activity-desc"><strong>Canteen & Free Choice</strong> Snacks and your choice of recreation.</div>
+            </div>
+            <div class="time-block">
+                <div class="time-label">4:30 PM</div>
+                <div class="activity-desc"><strong>Recreation</strong> Group games and physical activities.</div>
+            </div>
+            <div class="time-block">
+                <div class="time-label">6:00 PM</div>
+                <div class="activity-desc"><strong>Dinner</strong> Gathering for the evening meal.</div>
+            </div>
+            <div class="time-block">
+                <div class="time-label">7:00 PM</div>
+                <div class="activity-desc"><strong>Worship & Speaker</strong> Evening session with a guest speaker.</div>
+            </div>
+            <div class="time-block">
+                <div class="time-label">8:30 PM</div>
+                <div class="activity-desc"><strong>Night Activity</strong> High-energy "Night Games" across the camp.</div>
+            </div>
+            <div class="time-block">
+                <div class="time-label">11:00 PM</div>
+                <div class="activity-desc"><strong>Lights Out</strong> Quiet time and rest.</div>
+            </div>
+        </div>
+
+        <div class="info-note">
+            ℹ️ <strong>Note:</strong> Canteen is typically open twice daily—once during the afternoon free period and again after night games or during the campfire session.
+        </div>
+    </section>
+
+    <p style="text-align: center;"><a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">← Back to Main Guide</a></p>
+</div>
+
+</body>
+</html>
